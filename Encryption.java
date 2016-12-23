@@ -1,7 +1,7 @@
 /**
  ***********************************************************************************************************************
  * Bailey Thompson
- * Encryption (1.1.3)
+ * Encryption (1.1.4)
  * 22 December 2016
  * Info: This  encryption  program  takes  a user's text, tells the user the text when it is encrypted, then returns the
  * Info: encrypted  text to plain text. The plain text obviously has one part: the text. However, the encrypted text has
@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
 
 public class Encryption {
 
-    String word;
+    private String word;
 
     public static void main(String[] args) {
         Encryption Encryption = new Encryption();
