@@ -1,7 +1,7 @@
 /**
  ***********************************************************************************************************************
  * Bailey Thompson
- * Encryption (1.1.2)
+ * Encryption (1.1.3)
  * 22 December 2016
  * Info: This  encryption  program  takes  a user's text, tells the user the text when it is encrypted, then returns the
  * Info: encrypted  text to plain text. The plain text obviously has one part: the text. However, the encrypted text has
@@ -32,15 +32,15 @@ public class Encryption {
 
     public static void main(String[] args) {
         Encryption Encryption = new Encryption();
-        Encryption.Encryption();
+        Encryption.encryption();
     }
 
-    private void Encryption() {
-        Encrypt();
-        Decrypt();
+    private void encryption() {
+        encrypt();
+        decrypt();
     }
 
-    private void Encrypt() {
+    private void encrypt() {
         int check;
         word = JOptionPane.showInputDialog(null, "Write in text to be encrypted.", "Encryption Program",
                 JOptionPane.PLAIN_MESSAGE);
@@ -79,7 +79,7 @@ public class Encryption {
         }
     }
 
-    private void Decrypt() {
+    private void decrypt() {
         int check;
         int length = word.length();
         length = length - word.charAt((length) - 1) - 1;
