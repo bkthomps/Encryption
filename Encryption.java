@@ -1,7 +1,7 @@
 /**
  ***********************************************************************************************************************
  * Bailey Thompson
- * Encryption (1.1.1)
+ * Encryption (1.1.2)
  * 27 November 2016
  * Info: This  encryption  program  takes  a user's text, tells the user the text when it is encrypted, then returns the
  * Info: encrypted  text to plain text. The plain text obviously has one part: the text. However, the encrypted text has
@@ -21,72 +21,50 @@
  * Extra: by different people sending information back and forth.
  ***********************************************************************************************************************
  */
-//declaring package
 package encryption;
 
-//declaring imports
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-//declaring public class
 public class Encryption {
 
-    //declaring global variable
     String word;
 
-    //declaring main method
     public static void main(String[] args) {
-        //sending to method Encryption
         Encryption Encryption = new Encryption();
         Encryption.Encryption();
     }
 
-    //declaring private void method
     private void Encryption() {
-        //executes Encrypt method
         Encrypt();
-        //executes Decrypt method
         Decrypt();
     }
 
-    //declaring private void method used for encryption
     private void Encrypt() {
-        //declaring variable that checks if string is empty
         int check;
-        //getting word that user wants to encrypt
         word = JOptionPane.showInputDialog(null, "Write in text to be encrypted.", "Encryption Program",
                 JOptionPane.PLAIN_MESSAGE);
-        //if user inputs nothing and hits enter, user is notified to re-write the message
         while ("".equals(word)) {
             word = JOptionPane.showInputDialog(null, "I didn't quite get that!\nWrite in text to be encrypted.",
                     "Encryption Program", JOptionPane.PLAIN_MESSAGE);
         }
-        //checking if string is empty
         if (word == null) {
             System.exit(0);
         }
-        //declaring encryption variables
         int length = word.length(), random;
-        //randomly generating a buffer number
         int buffer = ((int) (Math.random() * ((length - 0) + 0))) + 0;
-        //determining how big the array must be
         char letter[] = new char[((length * 2) + buffer + 1)];
-        //setting the buffer number
         letter[((length * 2) + buffer)] = (char) buffer;
-        //filling the word section and the code section
         for (int i = 0; i < length; i++) {
             random = ((int) (Math.random() * ((500 - 20) + 20))) + 20;
             letter[(i + length)] = (char) random;
             letter[i] = (char) (word.charAt(i) + letter[(i + length)]);
         }
-        //filling the buffer
         for (int i = 0; i < buffer; i++) {
             random = ((int) (Math.random() * ((500 - 20) + 20))) + 20;
             letter[(i + (length * 2))] = (char) random;
         }
-        //set char variables to string
         word = String.valueOf(letter);
-        //set size of JOptionPane if text gets too long
         if (length > 40) {
             check = JOptionPane.showConfirmDialog(null, "This is the encrypted message:\n" + "<html><body width='1000'>"
                     + word + "\nTo decrypt the message, press ok.", "Encryption Program", JOptionPane.OK_CANCEL_OPTION,
@@ -96,35 +74,24 @@ public class Encryption {
                     + "\nTo decrypt the message, press ok.", "Encryption Program", JOptionPane.OK_CANCEL_OPTION,
                     JOptionPane.PLAIN_MESSAGE);
         }
-        //exits the game if cancel or exit is pressed
         if (check != 0) {
             System.exit(0);
         }
     }
 
-    //declaring private void method used for decryption
     private void Decrypt() {
-        //declaring variable that checks if string is empty
         int check;
-        //finding lenght of string
         int length = word.length();
-        //redefine lenght after buffer and buffer number are taken out
-        length = length - ((int) word.charAt((length) - 1)) - 1;
-        //create array to size of string with buffer and buffer number taken out
+        length = length - word.charAt((length) - 1) - 1;
         char letter[] = new char[length];
-        //fill array with main characters and encryption characters
         for (int i = 0; i < (length); i++) {
             letter[i] = word.charAt(i);
         }
-        //determine plain text by using main and encryption characters
         for (int i = 0; i < (length / 2); i++) {
             letter[i] -= letter[(i + (length / 2))];
         }
-        //resize array in order to easier manipulate
         letter = Arrays.copyOf(letter, (length / 2));
-        //set array to string
         word = String.valueOf(letter);
-        //set size of JOptionPane if text gets too long
         if (length > 400) {
             check = JOptionPane.showConfirmDialog(null, "This is the decrypted message:\n" + "<html><body width='1000'>"
                     + word, "Encryption Program", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -132,7 +99,6 @@ public class Encryption {
             check = JOptionPane.showConfirmDialog(null, "This is the decrypted message:\n" + word, "Encryption Program",
                     JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         }
-        //exits the game if cancel or exit is pressed
         if (check != 0) {
             System.exit(0);
         }
