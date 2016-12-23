@@ -2,7 +2,7 @@
  ***********************************************************************************************************************
  * Bailey Thompson
  * Encryption (1.1.2)
- * 27 November 2016
+ * 22 December 2016
  * Info: This  encryption  program  takes  a user's text, tells the user the text when it is encrypted, then returns the
  * Info: encrypted  text to plain text. The plain text obviously has one part: the text. However, the encrypted text has
  * Info: four  parts.  The  first  part  is  the main encryption characters. The second part is the encryption code. The
