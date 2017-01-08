@@ -1,8 +1,7 @@
 /**
- ***********************************************************************************************************************
  * Bailey Thompson
- * Encryption (1.1.4)
- * 22 December 2016
+ * Encryption (1.1.5)
+ * 8 January 2017
  * Info: This  encryption  program  takes  a user's text, tells the user the text when it is encrypted, then returns the
  * Info: encrypted  text to plain text. The plain text obviously has one part: the text. However, the encrypted text has
  * Info: four  parts.  The  first  part  is  the main encryption characters. The second part is the encryption code. The
@@ -19,7 +18,6 @@
  * Extra: The  reason  why the encryption and decryption are separate private voids, and the only global variable is the
  * Extra: String  word is to make it more realistic, as if the encryption and decryption were separate programs operated
  * Extra: by different people sending information back and forth.
- ***********************************************************************************************************************
  */
 package encryption;
 
