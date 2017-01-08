@@ -1,2 +1,2 @@
 # Encryption
-This was made in Java. It requires Java SE to play.
+This program contains two sub-routines: encryption and decryption.
