@@ -22,7 +22,7 @@
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
-class Encryption {
+public class Encryption {
 
     private String word;
 
