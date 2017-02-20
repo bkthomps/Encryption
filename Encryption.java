@@ -1,6 +1,6 @@
 /*
  * Bailey Thompson
- * Encryption (1.2.1)
+ * Encryption (1.2.2)
  * 20 February 2017
  */
 
@@ -26,8 +26,8 @@ class Encryption {
     }
 
     private void encryption() {
-        String encryptedMessage = encrypt();
-        decrypt(encryptedMessage);
+        final String ENCRYPTED_MESSAGE = encrypt();
+        decrypt(ENCRYPTED_MESSAGE);
     }
 
     private String encrypt() {
@@ -38,21 +38,21 @@ class Encryption {
         if (word == null) {
             System.exit(0);
         }
-        final int length = word.length();
-        final int buffer = (int) (Math.random() * length);
-        char[] letter = new char[((length * 2) + buffer + 1)];
-        letter[((length * 2) + buffer)] = (char) buffer;
-        for (int i = 0; i < length; i++) {
+        final int LENGTH = word.length();
+        final int BUFFER = (int) (Math.random() * LENGTH);
+        final char[] letter = new char[((LENGTH * 2) + BUFFER + 1)];
+        letter[((LENGTH * 2) + BUFFER)] = (char) BUFFER;
+        for (int i = 0; i < LENGTH; i++) {
             final int random = (int) (Math.random() * 500) + 20;
-            letter[(i + length)] = (char) random;
-            letter[i] = (char) (word.charAt(i) + letter[(i + length)]);
+            letter[(i + LENGTH)] = (char) random;
+            letter[i] = (char) (word.charAt(i) + letter[(i + LENGTH)]);
         }
-        for (int i = 0; i < buffer; i++) {
+        for (int i = 0; i < BUFFER; i++) {
             final int random = (int) (Math.random() * 500) + 20;
-            letter[(i + (length * 2))] = (char) random;
+            letter[(i + (LENGTH * 2))] = (char) random;
         }
         word = String.valueOf(letter);
-        if (length > 40) {
+        if (LENGTH > 40) {
             userDialog("This is the encrypted message:\n" + "<html><body width='1000'>" + word + "\nTo decrypt the "
                     + "message, press ok.");
         } else {
@@ -62,17 +62,17 @@ class Encryption {
     }
 
     private void decrypt(String word) {
-        final int length = word.length() - word.charAt(word.length() - 1) - 1;
-        char[] letter = new char[length];
-        for (int i = 0; i < (length); i++) {
+        final int LENGTH = word.length() - word.charAt(word.length() - 1) - 1;
+        char[] letter = new char[LENGTH];
+        for (int i = 0; i < (LENGTH); i++) {
             letter[i] = word.charAt(i);
         }
-        for (int i = 0; i < (length / 2); i++) {
-            letter[i] -= letter[(i + (length / 2))];
+        for (int i = 0; i < (LENGTH / 2); i++) {
+            letter[i] -= letter[(i + (LENGTH / 2))];
         }
-        letter = Arrays.copyOf(letter, (length / 2));
+        letter = Arrays.copyOf(letter, (LENGTH / 2));
         word = String.valueOf(letter);
-        if (length > 400) {
+        if (LENGTH > 400) {
             userDialog("This is the decrypted message:\n" + "<html><body width='1000'>" + word);
         } else {
             userDialog("This is the decrypted message:\n" + word);
@@ -80,9 +80,9 @@ class Encryption {
     }
 
     private void userDialog(String message) {
-        final int check = JOptionPane.showConfirmDialog(null, message, PROGRAM_NAME, JOptionPane.OK_CANCEL_OPTION,
+        final int CHECK = JOptionPane.showConfirmDialog(null, message, PROGRAM_NAME, JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE);
-        if (check != 0) {
+        if (CHECK != 0) {
             System.exit(0);
         }
     }
