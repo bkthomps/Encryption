@@ -1,6 +1,6 @@
 /*
  * Bailey Thompson
- * Encryption (1.2.2)
+ * Encryption (1.2.3)
  * 20 February 2017
  */
 
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 class Encryption {
 
-    private static final String PROGRAM_NAME = "Encryption Program";
+    private static final String PROGRAM_NAME = "Encryption";
 
     public static void main(String[] args) {
         Encryption Encryption = new Encryption();
